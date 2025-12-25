@@ -1,105 +1,16 @@
 Predictive Process Simulation for SLA Risk Forecasting
-📌 Project Overview
 
-Organizations running high-volume operational workflows (insurance claims, banking approvals, customer support tickets, government cases) must complete each case within a defined Service Level Agreement (SLA).
+This project demonstrates a predictive, simulation-based approach to estimate Service Level Agreement (SLA) breach risk in operational workflows before violations occur. Many organizations such as insurance companies, banks, customer support centers, and government departments process a large number of cases every day under strict SLA constraints. Traditional monitoring systems are reactive in nature and usually identify SLA breaches only after they have already happened. This project focuses on moving from reactive monitoring to proactive decision-making.
 
-Traditional monitoring systems are reactive — they detect SLA breaches after they occur.
+The core idea of the project is that SLA violations are primarily caused by variability in arrivals, service times, and resource availability rather than simple averages. Instead of relying on historical reports, the system simulates how work may flow in the near future under current conditions. Discrete Event Simulation is used to model cases, queues, and agents realistically, while Monte Carlo simulation is applied to run multiple future scenarios in order to quantify uncertainty and risk.
 
-This project introduces a predictive, simulation-based system that estimates the probability of SLA breaches before they happen, enabling proactive decision-making.
+The system takes basic operational parameters such as case arrival rate, number of agents, SLA duration, and simulation window as inputs. Based on these inputs, it estimates the probability of SLA breaches, classifies the risk level, and shows how changes in staffing impact the overall risk. An interactive Streamlit dashboard allows users to adjust parameters and immediately see the effect on SLA risk, making the system suitable for demonstration and decision support.
 
-🚨 Problem Statement
+The project is implemented using Python with SimPy for discrete event simulation, NumPy for numerical computation, and Streamlit for the user interface. The backend logic is modular and separated from the UI, following clean software engineering practices. The solution is intended as a prototype to demonstrate predictive process simulation rather than a full production deployment.
 
-Current operational dashboards suffer from:
+To run the project locally, install the required dependencies using the provided requirements file and start the Streamlit application from the project root. Once running, the dashboard can be accessed in a web browser where users can experiment with different operational scenarios and observe how SLA risk changes.
 
-Reactive SLA breach detection
+This project highlights how simulation can be used as a powerful decision-support tool for operations management by providing early warnings, reducing firefighting, and enabling proactive planning. The approach is applicable across multiple industries wherever time-bound processes and SLAs are critical.
 
-Reliance on historical averages
-
-No visibility into future risk
-
-No safe way to test “what-if” staffing decisions
-
-Key Insight:
-
-SLA violations are caused by variability, not averages.
-
-🎯 Solution Approach
-
-We simulate the future behavior of operational processes instead of analyzing only the past.
-
-Core Techniques Used
-
-Discrete Event Simulation (DES)
-Models how cases move through queues and agents over time.
-
-Monte Carlo Simulation
-Runs hundreds of possible future scenarios to quantify uncertainty.
-
-This allows us to estimate:
-
-Probability of SLA breach
-
-Risk level (Low / Medium / High)
-
-Impact of staffing changes
-
-🧠 System Flow
-
-Inputs
-
-Case arrival rate (cases/hour)
-
-Number of agents
-
-SLA duration
-
-Simulation time window
-
-Simulation Engine
-
-Each case is an entity
-
-Agents are limited resources
-
-Service times and arrivals are probabilistic
-
-Monte Carlo Forecasting
-
-Simulation runs repeated hundreds of times
-
-SLA breach probability distribution is computed
-
-Decision Support Output
-
-Average SLA breach risk (%)
-
-Risk classification
-
-What-if staffing comparison
-
-📊 Features
-
-Predicts SLA breach risk before it occurs
-
-Quantifies uncertainty using probability
-
-Interactive Streamlit dashboard
-
-What-if staffing analysis (+/- agents)
-
-Clean, modular backend design
-
-🛠️ Technology Stack
-Backend
-
-Python
-
-SimPy (Discrete Event Simulation)
-
-NumPy
-
-Monte Carlo Simulation
-
-Frontend
-
-Streamlit (Interactive Dashboard)
+Developed by Bhuvana, B.Tech CSE (Artificial Intelligence and Machine Learning).
+GitHub repository: https://github.com/Bhuvana-ai-ml/predictive-process-simulation
